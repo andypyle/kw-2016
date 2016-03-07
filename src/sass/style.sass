@@ -1,0 +1,55 @@
+// ## Imports
+
+@import variables/_config
+@import mixins/_mixins.utility
+@import mixins/_mixins.flex
+@import mixins/_mixins.buttons
+@import mixins/_mixins.responsive
+@import foundation
+
+// ## Enable / disable grid classes.
+@if($grid)
+	@import grid
+
+
+// ## Globals		:	*, html, body
+
+*
+	box-sizing: border-box
+
+html,
+body
+	height: 100%
+
+body
+	min-height: 100%
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.006)
+
+	color: black
+
+main
+	+flex(column, nowrap)
+	min-height: 100%
+
+section
+	min-height: 100%
+	flex: 1
+
+
+// Header
+header
+	+flex(row, wrap)
+	padding: $gutter
+	align-items: center
+	line-height: 1.15
+
+.Brand
+	flex: 1
+
+.Brand__text
+	font-family: 'Montserrat', sans-serif
+	font-size: 1.45rem
+	font-weight: 900
+	text-transform: uppercase
+
+@import navigation	

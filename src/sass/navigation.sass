@@ -1,0 +1,88 @@
+// Navigation
+.Navigation__toggle
+	display: block
+	text-align: center
+	position: relative
+	z-index: 55
+	cursor: pointer
+
+	&::before
+		content: ''
+		display: block
+		width: 100%
+		height: 2px
+		background-color: black
+		+fastTransition
+
+	&::after
+		content: ''
+		display: block
+		width: 100%
+		height: 2px
+		background-color: black
+		+fastTransition
+
+	span
+		display: block
+		overflow: hidden
+		
+		font-weight: 400
+		text-transform: uppercase
+		+fastTransition
+
+	+fastTransition
+		
+
+.Navigation__toggle--open, .Navigation__toggle--open:hover
+	&::before
+		transform: rotateZ(45deg) rotateY(45deg) translateY(3px)
+		height: 5px
+		background-color: white
+
+	&::after
+		transform: rotateZ(-45deg) rotateY(45deg) translateY(-3px)
+		height: 5px
+		background-color: white
+
+	span
+		line-height: 0
+		opacity: 0
+
+	& ~ nav
+		transform: translateX(0%)
+		+fastTransition
+
+.Navigation__toggle--open:hover
+	transform: scale(1.15)
+
+.Navigation__container
+	+flex
+	justify-content: center
+	align-items: center
+	position: fixed
+	height: 100%
+	left: 0
+	top: 0
+	right: 0
+	background: rgba(0,0,0,0.85)
+	color: white
+	transform: translateX(-100%)
+	+fastTransition
+
+.Navigation__container--open
+	transform: translateX(0%)
+
+.Navigation__list
+	+flex(column, wrap)
+	align-items: center
+	justify-content: center
+
+.Navigation__list__item
+	+flex
+	font-size: 2.5rem
+	font-weight: 300
+	
+	a
+		position: relative
+		z-index: 50
+		padding: $gutter / 3
